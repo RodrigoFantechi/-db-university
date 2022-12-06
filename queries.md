@@ -71,7 +71,7 @@ SELECT `courses`.`*` , `teachers`.`name`, `teachers`.`surname` FROM `course_teac
 ```
 - Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome
 ```sql
-SELECT `students`.`*`, `degrees`.`name` as 'nome corso di laurea', `departments`.`name` as 'nome dipartimento' FROM `degrees` JOIN `students` on `degrees`.`id` = `students`.`degree_id` JOIN `departments` ON `degrees`.`department_id` = `departments`.`id` ORDER BY `students`.`surname` ASC, `students`.`name` ASC;
+SELECT `students`.`name` as 'nome studente',`students`.`surname` as 'cognome studente', `degrees`.`*` , `departments`.`name` as 'nome dipartimento' FROM `degrees` JOIN `students` on `degrees`.`id` = `students`.`degree_id` JOIN `departments` ON `degrees`.`department_id` = `departments`.`id` ORDER BY `students`.`surname` ASC, `students`.`name` ASC;
 ```
 - Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
 ```sql
