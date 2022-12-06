@@ -2,7 +2,7 @@ Query Todo:
 
 - Selezionare tutti gli studenti nati nel 1990 (160)
 ```sql
-SELECT * FROM students WHERE year(date_of_birth) like '1990';
+SELECT * FROM students WHERE year(date_of_birth) like (o =) '1990';
 ```
 - Selezionare tutti i corsi che valgono più di 10 crediti (479)
 ```sql
@@ -11,6 +11,7 @@ SELECT * FROM courses WHERE cfu > 10;
 - Selezionare tutti gli studenti che hanno più di 30 anni
 ```sql
 select * FROM students WHERE year(curdate()) - year(date_of_birth) > 30;
+select * FROM students WHERE TIMESTAMPDIFF(Year, date_of_birth, curdate()) >30
 ```
 - Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea (286)
 ```sql
@@ -30,5 +31,5 @@ SELECT COUNT(id) as numero_dipartimenti from departments;
 ```
 - Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
 ```sql
-SELECT COUNT(id) as numero_insegnanti_senza_telefono from teachers where phone is not NULL;
+SELECT COUNT(id) as numero_insegnanti_senza_telefono from teachers where phone is NULL;
 ```
