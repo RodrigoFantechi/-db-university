@@ -83,5 +83,5 @@ SELECT DISTINCT `teachers`.`*`, `departments`.`name` as 'nome dipartimento' FROM
 ```
 - BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per superare ciascuno dei suoi esami
 ```sql
-
+select `students`.`name`, `students`.`surname`,`courses`.`name` as 'nome corso', COUNT(`courses`.`name`) AS 'numero di volte provate' from `exam_student` join `exams` on `exams`.`id` = `exam_student`.`exam_id` JOIN `students` on `students`.`id` = `exam_student`.`student_id` join `courses` on `courses`.`id` = `exams`.`course_id` WHERE `exam_student`.`vote` < 18 GROUP BY `students`.`name`, `students`.`surname`, `courses`.`name`;
 ```
